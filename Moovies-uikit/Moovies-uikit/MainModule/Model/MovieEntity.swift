@@ -15,32 +15,47 @@ struct MovieCellViewModel {
     var type:String?
 }
 
-struct Movie: Codable {
+//struct Movie: Decodable {
+//    let search: [Search]
+//    let totalResults, response: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case search
+//        case totalResults
+//        case response
+//    }
+//}
+//
+//// MARK: - Search
+//struct Search: Decodable {
+//    let title, year, imdbID: String
+//    let type: TypeEnum
+//    let poster: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case title
+//        case year
+//        case imdbID
+//        case type
+//        case poster
+//    }
+//}
+//
+//enum TypeEnum: String, Decodable {
+//    case movie = "movie"
+//}
+
+// MARK: - Welcome
+struct Movie: Decodable {
     let search: [Search]
-    let totalResults, response: String
-
-    enum CodingKeys: String, CodingKey {
-        case search
-        case totalResults
-        case response
-    }
 }
 
-// MARK: - Search
-struct Search: Codable {
-    let title, year, imdbID: String
-    let type: TypeEnum
-    let poster: String
-
-    enum CodingKeys: String, CodingKey {
-        case title
-        case year
-        case imdbID
-        case type
-        case poster
-    }
+// MARK: - Result
+struct Search: Decodable {
+    let title, year, imdbID: String?
+    let poster: String?
+    let type: String?
 }
 
-enum TypeEnum: String, Codable {
-    case movie = "movie"
-}
+
+

@@ -11,13 +11,13 @@ protocol MoviesModelProtocol:AnyObject {
     func didDataFetchProcessFinish(_ isSuccess: Bool)
 }
 
-class PostsModel {
+class MovieModel {
     weak var delegate: MoviesModelProtocol?
     var movies: [Search] = []
     
     func fetchData() {
         
-        guard let url = URL.init(string: "https://jsonplaceholder.typicode.com/posts") else {
+        guard let url = URL.init(string: "https://www.omdbapi.com/?apikey=c38cc4ed&s=edge") else {
             delegate?.didDataFetchProcessFinish(false)
             return
         }
@@ -45,7 +45,7 @@ class PostsModel {
                 let moviesData = try jsonDecoder.decode(Movie.self, from: data)
                 self?.movies = moviesData.search
                 
-                //self?.movies = try jsonDecoder.decode([Search].self, from: data)
+               // self?.movies = try jsonDecoder.decode([Search].self, from: data)
                 self?.delegate?.didDataFetchProcessFinish(true)
             } catch {
                 self?.delegate?.didDataFetchProcessFinish(false)

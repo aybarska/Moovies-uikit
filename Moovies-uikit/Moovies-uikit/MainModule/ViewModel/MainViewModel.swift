@@ -36,8 +36,10 @@ class MainViewModel {
     }
     
     func getData() {
+        
         model.searchStr = self.searchBarText
         model.fetchData()
+        
     }
 
     
@@ -65,11 +67,9 @@ extension MainViewModel: MoviesModelProtocol {
             let movies = model.movies
             let items = makeViewBasedModel(movies)
             if(items.count == 0) {
-                
                 viewDelegate?.showEmptyView()
             } else {
               viewDelegate?.didCellItemFetch(items)
-              //viewDelegate?.hideLoadingView()
                 viewDelegate?.hideEmptyView()
             }
            
@@ -77,7 +77,7 @@ extension MainViewModel: MoviesModelProtocol {
             viewDelegate?.showEmptyView()
         }
 
-
+        viewDelegate?.hideLoadingView()
     }
     
 }

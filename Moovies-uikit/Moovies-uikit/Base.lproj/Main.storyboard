@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" placeholder="search movie name" translatesAutoresizingMaskIntoConstraints="NO" id="CN4-as-Lyd">
-                                <rect key="frame" x="20" y="145" width="374" height="51"/>
+                                <rect key="frame" x="20" y="144.5" width="374" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IXp-FA-Nwy">
@@ -59,7 +59,7 @@
         <!--Details View Controller-->
         <scene sceneID="unu-02-BeV">
             <objects>
-                <viewController id="EwQ-M6-uBV" customClass="DetailsViewController" customModule="Moovies_uikit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="EwQ-M6-uBV" customClass="DetailsViewController" customModule="Moovies_uikit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o68-1X-8bi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePn-RJ-V8I">
                                 <rect key="frame" x="20" y="542" width="374" height="243.5"/>
-                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida quis tortor in auctor. Proin at odio vel odio maximus accumsan eu nec ex. Praesent id massa ultrices, pharetra erat quis, iaculis velit. Curabitur mi orci, tempor a felis ut, iaculis porta diam. Integer ex quam, feugiat vel nibh ut, aliquet malesuada velit. Ut vestibulum gravida odio ut sagittis. Aenean in facilisis risus. Donec maximus justo vel purus dignissim imperdiet. Mauris eu ex nec ligula scelerisque aliquam sed in velit. Nullam rhoncus tristique porttitor.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida quis tortor in auctor. Proin at odio vel odio maximus accumsan eu nec ex. Praesent id massa ultrices, pharetra erat quis, iaculis velit. Curabitur mi orci, tempor a felis ut, iaculis porta diam. Integer ex quam, feugiat vel nibh ut, aliquet malesuada velit. Ut vestibulum gravida odio ut sagittis. Aenean in facilisis risus. Donec maximus justo vel purus dignissim imperdiet. Mauris eu ex nec ligula scelerisque aliquam sed in velit. Nullam rhoncus tristique porttitor.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

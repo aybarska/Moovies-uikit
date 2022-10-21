@@ -15,10 +15,13 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var plotLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
+    var imdbId: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(imdbId)
     }
     
 

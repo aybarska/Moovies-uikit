@@ -46,7 +46,6 @@ class MovieModel {
                 let moviesData = try jsonDecoder.decode(MoviesSearch.self, from: data)
                 
                 if(moviesData.Response == "False") {
-                    print("false")
                     self?.movies = []
                 } else {
                     self?.movies = moviesData.movies!

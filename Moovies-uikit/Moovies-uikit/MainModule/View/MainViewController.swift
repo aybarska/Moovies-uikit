@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    var activityIndicator = UIActivityIndicatorView()
     
     private let viewModel = MainViewModel()
         
@@ -20,6 +21,7 @@ class MainViewController: UIViewController {
             super.viewDidLoad()
             // Do any additional setup after loading the view.
             makeUI()
+            setupActivityIndicator()
             viewModel.viewDelegate = self
             self.searchBar.delegate = self
             viewModel.didViewLoad()
@@ -35,15 +37,26 @@ class MainViewController: UIViewController {
             tableView.rowHeight = 230.0
         }
         
+        func setupActivityIndicator() {
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.style = .large
+            activityIndicator.color = .red
+            view.addSubview(activityIndicator)
+        }
+        
         func registerCell() {
             tableView.register(.init(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "MainTableViewCell")
         }
     }
 
 extension MainViewController: MainViewModelViewProtocol {
-    func hideLoadingView() {
-        //
-    }
+    
+        func hideLoadingView() {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+            }
+        }
     
         
         func didCellItemFetch(_ items: [MovieCellViewModel]) {
@@ -66,16 +79,18 @@ extension MainViewController: MainViewModelViewProtocol {
         
         func hideEmptyView() {
             DispatchQueue.main.async {
-                //self.tableView.backgroundView?.
-                //self.tableView.reloadData()
+                self.tableView.backgroundView?.isHidden = true
+                self.tableView.reloadData()
             }
         }
     
     func showWelcomeView() {
+        self.items = []
         DispatchQueue.main.async {
-        let noDataImageView = UIImageView(image: UIImage(named: "welcome"))
-           noDataImageView.contentMode = .scaleAspectFit
-         self.tableView.backgroundView = noDataImageView
+        let welcomeImageView = UIImageView(image: UIImage(named: "welcome"))
+            welcomeImageView.contentMode = .scaleAspectFit
+         self.tableView.backgroundView = welcomeImageView
+         self.tableView.reloadData()
         }
     }
         
@@ -84,7 +99,10 @@ extension MainViewController: MainViewModelViewProtocol {
     extension MainViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             viewModel.didClickItem(at: indexPath.row)
-            
+            tableView.deselectRow(at: indexPath, animated: true)
+            let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+            detailsVC?.imdbId = items[indexPath.row].imdbID ?? ""
+            self.navigationController?.pushViewController(detailsVC!, animated: true)
         }
     }
 
@@ -108,8 +126,11 @@ extension MainViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
                 if(searchText.count > 2){
+                    self.activityIndicator.startAnimating()
                     viewModel.searchBarText = searchText
                     viewModel.getData()
+                } else {
+                    self.showWelcomeView()
                 }
 
         //self.showEmptyView()

@@ -13,11 +13,12 @@ protocol MoviesModelProtocol:AnyObject {
 
 class MovieModel {
     weak var delegate: MoviesModelProtocol?
-    var movies: [Search] = []
+    var movies: [Movie] = []
+    var searchStr: String = ""
     
     func fetchData() {
         
-        guard let url = URL.init(string: "https://www.omdbapi.com/?apikey=c38cc4ed&s=edge") else {
+        guard let url = URL.init(string: "https://www.omdbapi.com/?apikey=c38cc4ed&s=\(searchStr)") else {
             delegate?.didDataFetchProcessFinish(false)
             return
         }
@@ -42,10 +43,15 @@ class MovieModel {
             do {
                 let jsonDecoder = JSONDecoder()
                 
-                let moviesData = try jsonDecoder.decode(Movie.self, from: data)
-                self?.movies = moviesData.search
+                let moviesData = try jsonDecoder.decode(MoviesSearch.self, from: data)
                 
-               // self?.movies = try jsonDecoder.decode([Search].self, from: data)
+                if(moviesData.Response == "False") {
+                    print("false")
+                    self?.movies = []
+                } else {
+                    self?.movies = moviesData.movies!
+                }
+                
                 self?.delegate?.didDataFetchProcessFinish(true)
             } catch {
                 self?.delegate?.didDataFetchProcessFinish(false)

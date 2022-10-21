@@ -21,7 +21,9 @@ class MainViewController: UIViewController {
             // Do any additional setup after loading the view.
             makeUI()
             viewModel.viewDelegate = self
+            self.searchBar.delegate = self
             viewModel.didViewLoad()
+            showWelcomeView()
         }
     }
 
@@ -30,6 +32,7 @@ class MainViewController: UIViewController {
             tableView.delegate = self
             tableView.dataSource = self
             registerCell()
+            tableView.rowHeight = 230.0
         }
         
         func registerCell() {
@@ -52,16 +55,29 @@ extension MainViewController: MainViewModelViewProtocol {
         
         func showEmptyView() {
             // has to be in main
+            self.items = []
             DispatchQueue.main.async {
-          //  let noDataImageView = UIImageView(image: UIImage(named: "noData2"))
-           //     noDataImageView.contentMode = .scaleAspectFit
-           // self.tableView.backgroundView = noDataImageView
+            let noDataImageView = UIImageView(image: UIImage(named: "noResult"))
+                noDataImageView.contentMode = .scaleAspectFit
+            self.tableView.backgroundView = noDataImageView
+            self.tableView.reloadData()
             }
         }
         
         func hideEmptyView() {
-        
+            DispatchQueue.main.async {
+                //self.tableView.backgroundView?.
+                //self.tableView.reloadData()
+            }
         }
+    
+    func showWelcomeView() {
+        DispatchQueue.main.async {
+        let noDataImageView = UIImageView(image: UIImage(named: "welcome"))
+           noDataImageView.contentMode = .scaleAspectFit
+         self.tableView.backgroundView = noDataImageView
+        }
+    }
         
     }
 
@@ -87,4 +103,17 @@ extension MainViewController: MainViewModelViewProtocol {
         }
         
     }
+
+extension MainViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+                if(searchText.count > 2){
+                    viewModel.searchBarText = searchText
+                    viewModel.getData()
+                }
+
+        //self.showEmptyView()
+        self.tableView.reloadData()
+    }
+}
 

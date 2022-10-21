@@ -16,6 +16,7 @@ protocol MainViewModelViewProtocol:AnyObject {
 
 class MainViewModel {
     private let model = MovieModel()
+    var searchBarText: String = ""
     weak var viewDelegate: MainViewModelViewProtocol?
     
     init(){
@@ -31,16 +32,16 @@ class MainViewModel {
     }
     
     func didViewLoad() {
-        model.fetchData()
+        //model.fetchData()
     }
     
     func getData() {
-        
+        model.searchStr = self.searchBarText
         model.fetchData()
     }
 
     
-    func movieAtIndex(_ index: Int) -> Search{
+    func movieAtIndex(_ index: Int) -> Movie{
         return model.movies[index]
     }
     
@@ -49,14 +50,9 @@ class MainViewModel {
 private extension MainViewModel {
     
     @discardableResult
-    func makeViewBasedModel(_ movies: [Search]) -> [MovieCellViewModel] {
+    func makeViewBasedModel(_ movies: [Movie]) -> [MovieCellViewModel] {
         //make data usabe for view
-        //AYB Check this map function
-//        if let hotel = hotels.first {
-//            return hotel.result.map { .init(hotelNameTrans: $0.hotel_name, address: $0.address, mainPhotoURL: $0.mainPhotoURL) }
-//        }
-//        return []
-        return movies.map { .init(title: $0.title, year: $0.year, imdbID: $0.imdbID, poster: $0.poster) }
+        return movies.map { .init(title: $0.title, year: $0.year, imdbID: $0.imdbId, poster: $0.poster) }
     }
     
     
@@ -65,12 +61,18 @@ private extension MainViewModel {
 extension MainViewModel: MoviesModelProtocol {
     func didDataFetchProcessFinish(_ isSuccess: Bool) {
         //data we fetch from api
-      
         if isSuccess {
             let movies = model.movies
             let items = makeViewBasedModel(movies)
-            viewDelegate?.didCellItemFetch(items) //this is workin on view
-            viewDelegate?.hideLoadingView()
+            if(items.count == 0) {
+                
+                viewDelegate?.showEmptyView()
+            } else {
+              viewDelegate?.didCellItemFetch(items)
+              //viewDelegate?.hideLoadingView()
+                viewDelegate?.hideEmptyView()
+            }
+           
         } else {
             viewDelegate?.showEmptyView()
         }

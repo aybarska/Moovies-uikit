@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailsViewController: UIViewController {
 
@@ -15,24 +16,39 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var plotLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
+    
+    var posterStr: String = ""
     var imdbId: String = ""
+    
+    var items: Detail?
+    let viewModel = DetailsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.viewDelegate = self
+        viewModel.didViewLoad(id: self.imdbId)
         // Do any additional setup after loading the view.
         print(imdbId)
     }
+}
+
+extension DetailsViewController: DetailsViewModelViewProtocol {
+    
+        func didDetailItemFetch(_ item: Detail) {
+            print("hi")
+            self.items = item
+            DispatchQueue.main.async {
+                KF.url(URL(string: item.Poster ))
+                    .set(to: self.posterImage)
+                self.titleLabel.text = item.Title
+                self.yearLabel.text = item.Year
+                self.directorLabel.text = item.Director
+                self.plotLabel.text = item.Plot
+                
+            }
+            
+        }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
-}

@@ -2,39 +2,61 @@
 //  DetailsModel.swift
 //  Moovies-uikit
 //
-//  Created by Ayberk Mogol on 20.10.2022.
+//  Created by Ayberk Mogol on 25.10.2022.
 //
 
 import Foundation
 
-struct MovieDetail : Codable {
+protocol DetailsModelProtocol:AnyObject {
+    func didDataFetchProcessFinish(_ isSuccess: Bool)
+}
+
+class DetailsModel {
+    weak var delegate: DetailsModelProtocol?
     
-    let title : String
-    let year : String
-    let genre : String
-    let director : String
-    let writer : String
-    let actors : String
-    let plot : String
-    let awards : String
-    let poster : String
-    let metascore : String
-    let imdbRating : String
-    let imdbId : String
+    var detail: Detail?
+   // var detail: [Detail] = []
     
-    private enum CodingKeys : String, CodingKey {
-        case title = "Title"
-        case year = "Year"
-        case genre = "Genre"
-        case director = "Director"
-        case writer = "Writer"
-        case actors = "Actors"
-        case plot = "Plot"
-        case awards = "Awards"
-        case poster = "Poster"
-        case metascore = "Metascore"
-        case imdbRating = "imdbRating"
-        case imdbId = "imdbID"
+    
+    
+    func fetchData(id: String) {
+        
+        guard let url = URL.init(string: "https://www.omdbapi.com/?apikey=c38cc4ed&i=\(id)") else {
+            delegate?.didDataFetchProcessFinish(false)
+            return
+        }
+        
+        
+        var request: URLRequest = .init(url: url)
+        request.httpMethod = "GET"
+        
+           let task = URLSession.shared.dataTask(with: request) {[weak self] data, response, error in
+           
+            guard error == nil
+               else {
+                self?.delegate?.didDataFetchProcessFinish(false)
+                return
+            }
+            
+            guard let data = data else {
+                self?.delegate?.didDataFetchProcessFinish(false)
+                return
+            }
+            
+            do {
+                let jsonDecoder = JSONDecoder()
+                //print("--> data: \(String(data: data, encoding: .utf8) ?? "")")
+                let detailsData = try jsonDecoder.decode(Detail.self, from: data)
+                self?.detail = detailsData
+                //print(self?.detail!)
+                self?.delegate?.didDataFetchProcessFinish(true)
+            } catch {
+                print(error)
+                self?.delegate?.didDataFetchProcessFinish(false)
+            }
+
+        }
+        
+        task.resume()
     }
-    
 }

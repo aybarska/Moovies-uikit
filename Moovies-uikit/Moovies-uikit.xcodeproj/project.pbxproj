@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F37D73A7DB34A059E204C73 /* Pods_Moovies_uikit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C84206F203DCE32462C8BEC /* Pods_Moovies_uikit.framework */; };
+		98771BDF29080E3300A7F996 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98771BDE29080E3300A7F996 /* DetailsModel.swift */; };
+		98771BE229080E6900A7F996 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98771BE129080E6900A7F996 /* DetailsViewModel.swift */; };
 		98B6FC6C2901D12F00020FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC6B2901D12F00020FAC /* AppDelegate.swift */; };
 		98B6FC6E2901D12F00020FAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC6D2901D12F00020FAC /* SceneDelegate.swift */; };
 		98B6FC702901D12F00020FAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC6F2901D12F00020FAC /* MainViewController.swift */; };
@@ -16,7 +19,7 @@
 		98B6FC7B2901D13700020FAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98B6FC792901D13700020FAC /* LaunchScreen.storyboard */; };
 		98B6FC882901D7C400020FAC /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC872901D7C400020FAC /* MovieEntity.swift */; };
 		98B6FC8C2901DAF000020FAC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC8B2901DAF000020FAC /* DetailsViewController.swift */; };
-		98B6FC8F2901DC0B00020FAC /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC8E2901DC0B00020FAC /* DetailsModel.swift */; };
+		98B6FC8F2901DC0B00020FAC /* DetailsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC8E2901DC0B00020FAC /* DetailsEntity.swift */; };
 		98B6FC912901E82E00020FAC /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC902901E82E00020FAC /* MovieModel.swift */; };
 		98B6FC932901E9FE00020FAC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC922901E9FE00020FAC /* MainViewModel.swift */; };
 		98B6FC962901EAB700020FAC /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B6FC942901EAB700020FAC /* MainTableViewCell.swift */; };
@@ -24,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		115D7CCC12A49F68749F2DEC /* Pods-Moovies-uikit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moovies-uikit.release.xcconfig"; path = "Target Support Files/Pods-Moovies-uikit/Pods-Moovies-uikit.release.xcconfig"; sourceTree = "<group>"; };
+		14E23AAC2C4944680677D0CE /* Pods-Moovies-uikit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moovies-uikit.debug.xcconfig"; path = "Target Support Files/Pods-Moovies-uikit/Pods-Moovies-uikit.debug.xcconfig"; sourceTree = "<group>"; };
+		2C84206F203DCE32462C8BEC /* Pods_Moovies_uikit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moovies_uikit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98771BDE29080E3300A7F996 /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		98771BE129080E6900A7F996 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		98B6FC682901D12F00020FAC /* Moovies-uikit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Moovies-uikit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B6FC6B2901D12F00020FAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98B6FC6D2901D12F00020FAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +43,7 @@
 		98B6FC7C2901D13700020FAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98B6FC872901D7C400020FAC /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
 		98B6FC8B2901DAF000020FAC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		98B6FC8E2901DC0B00020FAC /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
+		98B6FC8E2901DC0B00020FAC /* DetailsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsEntity.swift; sourceTree = "<group>"; };
 		98B6FC902901E82E00020FAC /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		98B6FC922901E9FE00020FAC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		98B6FC942901EAB700020FAC /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -47,17 +55,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F37D73A7DB34A059E204C73 /* Pods_Moovies_uikit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03C719AFA759BA5CEDD01D13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14E23AAC2C4944680677D0CE /* Pods-Moovies-uikit.debug.xcconfig */,
+				115D7CCC12A49F68749F2DEC /* Pods-Moovies-uikit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		98771BE029080E4A00A7F996 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				98771BE129080E6900A7F996 /* DetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		98B6FC5F2901D12F00020FAC = {
 			isa = PBXGroup;
 			children = (
 				98B6FC6A2901D12F00020FAC /* Moovies-uikit */,
 				98B6FC692901D12F00020FAC /* Products */,
+				03C719AFA759BA5CEDD01D13 /* Pods */,
+				9C2AA9F11F3C50940350AC5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +126,7 @@
 		98B6FC832901D6F600020FAC /* DetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				98771BE029080E4A00A7F996 /* ViewModel */,
 				98B6FC8D2901DBF900020FAC /* Model */,
 				98B6FC8A2901DAD600020FAC /* View */,
 			);
@@ -150,9 +179,18 @@
 		98B6FC8D2901DBF900020FAC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				98B6FC8E2901DC0B00020FAC /* DetailsModel.swift */,
+				98B6FC8E2901DC0B00020FAC /* DetailsEntity.swift */,
+				98771BDE29080E3300A7F996 /* DetailsModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9C2AA9F11F3C50940350AC5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C84206F203DCE32462C8BEC /* Pods_Moovies_uikit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98B6FC7F2901D13700020FAC /* Build configuration list for PBXNativeTarget "Moovies-uikit" */;
 			buildPhases = (
+				3D3C70DBD3679DE58605A339 /* [CP] Check Pods Manifest.lock */,
 				98B6FC642901D12F00020FAC /* Sources */,
 				98B6FC652901D12F00020FAC /* Frameworks */,
 				98B6FC662901D12F00020FAC /* Resources */,
+				45D7B084F89140D427AFEDAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,6 +262,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3D3C70DBD3679DE58605A339 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Moovies-uikit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45D7B084F89140D427AFEDAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Moovies-uikit/Pods-Moovies-uikit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Moovies-uikit/Pods-Moovies-uikit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Moovies-uikit/Pods-Moovies-uikit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		98B6FC642901D12F00020FAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -233,10 +315,12 @@
 				98B6FC882901D7C400020FAC /* MovieEntity.swift in Sources */,
 				98B6FC962901EAB700020FAC /* MainTableViewCell.swift in Sources */,
 				98B6FC912901E82E00020FAC /* MovieModel.swift in Sources */,
-				98B6FC8F2901DC0B00020FAC /* DetailsModel.swift in Sources */,
+				98771BDF29080E3300A7F996 /* DetailsModel.swift in Sources */,
+				98B6FC8F2901DC0B00020FAC /* DetailsEntity.swift in Sources */,
 				98B6FC6E2901D12F00020FAC /* SceneDelegate.swift in Sources */,
 				98B6FC8C2901DAF000020FAC /* DetailsViewController.swift in Sources */,
 				98B6FC932901E9FE00020FAC /* MainViewModel.swift in Sources */,
+				98771BE229080E6900A7F996 /* DetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +462,7 @@
 		};
 		98B6FC802901D13700020FAC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14E23AAC2C4944680677D0CE /* Pods-Moovies-uikit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -407,6 +492,7 @@
 		};
 		98B6FC812901D13700020FAC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 115D7CCC12A49F68749F2DEC /* Pods-Moovies-uikit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

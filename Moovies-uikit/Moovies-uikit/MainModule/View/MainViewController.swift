@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainViewController: UIViewController {
 
@@ -13,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var activityIndicator = UIActivityIndicatorView()
     
-    private let viewModel = MainViewModel()
+        private let viewModel = MainViewModel()
         
         private var items: [MovieCellViewModel] = []
         
@@ -27,6 +28,7 @@ class MainViewController: UIViewController {
             viewModel.didViewLoad()
             showWelcomeView()
         }
+    
     }
 
     private extension MainViewController {
@@ -115,8 +117,11 @@ extension MainViewController: MainViewModelViewProtocol {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell") as! MainTableViewCell
+            //Kingfisher
             cell.titleLabel.text = items[indexPath.row].title
             cell.yearLabel.text = items[indexPath.row].year
+            KF.url(URL(string: items[indexPath.row].poster ?? "https://i.ibb.co/mtdQq8t/1.jpg"))
+                .set(to: cell.posterImageView)
             return cell
         }
         
